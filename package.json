@@ -1,0 +1,30 @@
+{
+  "name": "yandi",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0"
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Fhup/FhupMall.git"
+  },
+  "author": "yandi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fhup/FhupMall/issues"
+  },
+  "homepage": "https://github.com/Fhup/FhupMall#readme"
+}
