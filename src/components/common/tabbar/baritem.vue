@@ -46,6 +46,7 @@ export default {
   height: 49px;
   font-size: 14px;
   cursor: pointer;
+  z-index: 9;
 }
 .item-img {
   width: 24px;
