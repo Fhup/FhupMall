@@ -29,7 +29,7 @@ const Random = require('mockjs').Random;
 
 //mock随机数据
 let chartData = []
-for (let i = 0; i < 66; i++) {
+for (let i = 0; i < 10; i++) {
     let newArticleObject = {
         id: "@increment",
         cfav: Mock.mock({

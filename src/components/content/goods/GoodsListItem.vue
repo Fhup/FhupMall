@@ -1,7 +1,7 @@
 <template>
   <div class="goodsitem">
     <div>
-      <img :src="goodsitem.img_url" alt="">
+      <img :src="goodsitem.img_url" alt="" @load="imgload">
     </div>
     <div class="goodsinfo">
       <p>{{goodsitem.content}}</p>
@@ -36,7 +36,10 @@ export default {
   },
 
   methods: {
-    
+    imgload(){
+      //这个方法会执行很多次
+      this.$bus.$emit("itemimgclick")
+    }
   },
 };
 </script>

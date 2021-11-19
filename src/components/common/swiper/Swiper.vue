@@ -211,6 +211,7 @@
 
 <style scoped>
   #hy-swiper {
+    width: 100%;
     overflow: hidden;
     position: relative;
   }
