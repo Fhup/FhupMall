@@ -3,9 +3,10 @@
         <!-- home导航 -->
         <nav-bar class="nav-bar"><div slot="bar-center">购物迪</div></nav-bar>
 
+        <tab-control :titles="titles" @tabclick="tabclick" v-show="isfixed" ref="tabcontrol1" :class="{toptab:isfixed}" />
+
         <!-- .native可以监听组件的原生事件 -->
         <back-top @click.native="backtopcli" v-show="flag"/>
-
 
         <div class="homecontent" ref="homecontent">
             <div>
@@ -13,7 +14,7 @@
               <swiper v-if="banners.length">
                   <swiper-item v-for="(item,index) in banners"  :key="index">
                     <a :href="item.link" target="_blank">
-                        <img :src="item.image" alt="banner"></img>
+                        <img :src="item.image" alt="banner" @load="bannerimgload"></img>
                     </a>
                   </swiper-item>
               </swiper>
@@ -22,7 +23,7 @@
 
               <fashion-view/>
 
-              <tab-control :titles="titles" class="tab-control" @tabclick="tabclick"/>
+              <tab-control :titles="titles" @tabclick="tabclick" ref="tabcontrol2"/>
 
               <goods-list :goods="goods"/>
 
@@ -35,6 +36,7 @@
 <script>
 import HomeRecommend from './homechild/HomeRecommend'
 import FashionView from './homechild/FashionView'
+import {debounce} from 'common/utils'
 
 
 import Bscroll from 'better-scroll'
@@ -60,8 +62,20 @@ export default {
             titles:["流行","精选","新款"],
             goods:[],
             bs:null,
-            flag:false
+            flag:false,
+            taboffsetTop:0,
+            taboffsetTop_flag:true,
+            isfixed:false,
+            saveY:0
         };
+    },
+
+    activated() {
+      this.bs && this.bs.scrollTo(0,this.saveY,0)
+      this.bs && this.bs.refresh()
+    },
+    deactivated() {
+      this.saveY=this.bs.y
     },
     components:{
       NavBar,
@@ -89,27 +103,24 @@ export default {
       tabclick(index){
         //对["流行","精选","新款"]里面的数据通过index处理
         //console.log(this.titles[index]);
+        this.$refs.tabcontrol1.cindex=index;
+        this.$refs.tabcontrol2.cindex=index;
       },
       backtopcli(){
         this.bs && this.bs.scrollTo(0,0,1000)
       },
-
-      //节流函数
-      debounce(fn,delay){
-        let timeout = null; // 创建一个标记用来存放定时器的返回值
-        return function (...args) {
-            clearTimeout(timeout); // 每当用户输入的时候把前一个 setTimeout clear 掉
-            timeout = setTimeout(() => {
-                // 然后又创建一个新的 setTimeout, 这样就能保证输入字符后的
-                // interval 间隔内如果还有字符输入的话，就不会执行 fn 函数
-                fn.apply(this,args);
-            }, delay);
-        };
-      },
-
       refresh(){
           // console.log("-------");
           this.bs && this.bs.refresh()
+      },
+      //获取tabcontrol的高度实现吸顶
+      bannerimgload(){
+        if(this.taboffsetTop_flag){
+          //$el 获取组件中的获取元素
+          this.taboffsetTop=this.$refs.tabcontrol2.$el.offsetTop
+          this.taboffsetTop_flag=false
+        }
+        
       }
     },
     mounted() {
@@ -121,7 +132,8 @@ export default {
           observeImage: true
         })
         this.bs.on('scroll',position=>{
-          this.flag=-position.y>1000
+           this.flag=-position.y>1000
+           this.isfixed =-position.y>this.taboffsetTop
         })
         this.bs.on('pullingUp',()=>{
           // console.log(newsList.newsList.newsList.length);
@@ -132,12 +144,12 @@ export default {
           this.bs.finishPullUp()
         })
 
-        const refresh=this.debounce(this.refresh,1000)
+        const refresh=debounce(this.refresh,1000)
         //这个方法执行多次
         this.$bus.$on("itemimgclick",()=>{
           // this.bs && this.bs.refresh()
           refresh()
-        }) 
+        })
     }, 
     
 };
@@ -146,26 +158,25 @@ export default {
 <style scoped>
 
   #home{
-    padding-top: 44px;
+    width: 100%;
   }
-
   .nav-bar{
+    width: 100%;
     background-color: var(--color-tint);
     color: #fff;
-    position:fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9;
-  }
-  .tab-control{
-    position: sticky;
-    top: 43px;
-    background-color: #fff;
   }
   .homecontent{
     height:83vh;
     overflow: hidden;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    right: 0;
+  }
+  .toptab{
+    position: relative;
+    width: 100%;
+    z-index: 9;
+    background-color: #fff;
   }
 </style>

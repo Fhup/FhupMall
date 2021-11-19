@@ -1,5 +1,5 @@
 <template>
-  <div class="goodsitem">
+  <div class="goodsitem" @click="gitemclick">
     <div>
       <img :src="goodsitem.img_url" alt="" @load="imgload">
     </div>
@@ -39,6 +39,9 @@ export default {
     imgload(){
       //这个方法会执行很多次
       this.$bus.$emit("itemimgclick")
+    },
+    gitemclick(){
+      this.$router.push('/detail/'+this.goodsitem.id)
     }
   },
 };

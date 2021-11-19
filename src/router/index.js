@@ -10,6 +10,8 @@ const Cart = () =>
     import ('views/cart/Cart')
 const ProFile = () =>
     import ('views/profile/ProFile')
+const Detail = () =>
+    import ('views/detail/Detail')
 
 
 // Vue.use() 安装插件
@@ -40,6 +42,10 @@ var routes = [{
         path: "/profile",
         component: ProFile
     },
+    {
+        path: "/detail/:iid",
+        component: Detail,
+    }
 ]
 
 const router = new Router({
