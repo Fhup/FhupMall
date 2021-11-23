@@ -17,6 +17,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* 解决移动端延迟500ms, */
+    touch-action: pan-y;
 }
 
 body {

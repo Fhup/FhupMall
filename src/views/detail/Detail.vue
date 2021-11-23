@@ -6,7 +6,7 @@
         <a :href="info.url" target="_blank">
           <img
             class="imgs"
-            :src="info.picurl"
+            v-lazy="info.picurl"
             alt=""
             onerror="this.src = '~assets/img/common/placeholder.png'"
           />

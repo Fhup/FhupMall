@@ -1,7 +1,8 @@
 <template>
   <div class="goodsitem" @click="gitemclick">
     <div>
-      <img :src="goodsitem.img_url" alt="" @load="imgload">
+      <!-- :src="goodsitem.img_url" -->
+      <img v-lazy="goodsitem.img_url" alt="" @load="imgload">
     </div>
     <div class="goodsinfo">
       <p>{{goodsitem.content}}</p>
