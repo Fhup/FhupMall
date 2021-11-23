@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-// import store from './store'
-// import axios from 'axios'
+import store from './store'
+import toast from 'components/common/toast'
 // mock 模拟数据
 // import './mock/index'
 
@@ -17,7 +17,11 @@ Vue.prototype.$bus = new Vue();
 //   this.bs && this.bs.finishPullUp()
 // })
 
+// 下载toast插件
+Vue.use(toast)
+
 new Vue({
     router,
+    store,
     render: h => h(App)
 }).$mount('#app')

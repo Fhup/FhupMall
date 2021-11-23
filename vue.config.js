@@ -11,5 +11,16 @@ module.exports = {
                 'views': '@/views',
             }
         }
-    }
+    },
+    // devServer: {
+    //     proxy: {
+    //         ["/api"]: {
+    //             target: 'https://api.pingping6.com/tools/bullshit',
+    //             changeOrigin: true,
+    //             pathRewrite: {
+    //                 ['^' + "/api"]: ''
+    //             }
+    //         }
+    //     }
+    // }
 }

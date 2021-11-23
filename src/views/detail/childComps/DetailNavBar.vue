@@ -25,7 +25,7 @@ export default {
 
   data() {
     return {
-      titles: ["商品", "参数", "评论", "推荐"],
+      titles: ["歌曲", "美文"],
       currindex: 0,
     };
   },
@@ -36,9 +36,10 @@ export default {
   methods: {
     tclick(index) {
       this.currindex = index;
+      this.$emit('barcheck',index)
     },
     barleftclick() {
-      this.$router.go(-1);
+      this.$router.back();
     },
   },
 };

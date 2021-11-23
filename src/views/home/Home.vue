@@ -51,6 +51,8 @@ import {Swiper, SwiperItem} from 'components/common/swiper/index'
 import TabControl from 'components/content/tabControl/TabControl'
 import GoodsList from 'components/content/goods/GoodsList'
 
+import { textmixin } from "common/mixin";
+
 
 export default {
     name: 'Home',
@@ -69,13 +71,17 @@ export default {
             saveY:0
         };
     },
-
+    mixins:[textmixin],
     activated() {
-      this.bs && this.bs.scrollTo(0,this.saveY,0)
       this.bs && this.bs.refresh()
+      this.bs && this.bs.scrollTo(0,this.saveY,0)
+      
+      // console.log("得到"+this.saveY);
     },
     deactivated() {
       this.saveY=this.bs.y
+
+      // console.log("失去"+this.saveY);
     },
     components:{
       NavBar,
@@ -116,7 +122,7 @@ export default {
       //获取tabcontrol的高度实现吸顶
       bannerimgload(){
         if(this.taboffsetTop_flag){
-          //$el 获取组件中的获取元素
+          //$el 获取组件中的元素
           this.taboffsetTop=this.$refs.tabcontrol2.$el.offsetTop
           this.taboffsetTop_flag=false
         }
@@ -164,6 +170,7 @@ export default {
     width: 100%;
     background-color: var(--color-tint);
     color: #fff;
+    font-weight: 700;
   }
   .homecontent{
     height:83vh;
