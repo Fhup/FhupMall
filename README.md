@@ -1,5 +1,6 @@
-# mall
+# 感谢coderwhy老师
 
+> mall
 ## Project setup
 ```
 npm install
