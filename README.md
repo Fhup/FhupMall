@@ -1,27 +1,13 @@
-# 感谢coderwhy老师
+## FhupMall
 
-> mall
-## Project setup
+### 此项目基于vue2.0实现的移动端电商平台
+
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
