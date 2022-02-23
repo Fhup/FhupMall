@@ -14,7 +14,7 @@
               <swiper v-if="banners.length">
                   <swiper-item v-for="(item,index) in banners"  :key="index">
                     <a :href="item.link" target="_blank">
-                        <img :src="item.image" alt="banner" @load="bannerimgload"></img>
+                        <img :src="item.image" alt="banner" @load="bannerimgload"/>
                     </a>
                   </swiper-item>
               </swiper>

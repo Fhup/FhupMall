@@ -14,9 +14,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
-// mock 模拟数据
-// import './mock/index'
-
 
 Vue.config.productionTip = false //关闭生产提示
 
@@ -30,6 +27,7 @@ Vue.prototype.$bus = new Vue();
 
 // 下载toast插件
 Vue.use(toast)
+
 Vue.use(ElementUI);
 Vue.use(Vant);
 

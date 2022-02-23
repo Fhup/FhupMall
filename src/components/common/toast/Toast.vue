@@ -7,16 +7,6 @@
 <script>
 export default {
   name: 'Toast',
-  props: {
-    // message: {
-    //   type: String,
-    //   default: ''
-    // },
-    // show: {
-    //   type: Boolean,
-    //   default: false
-    // }
-  },
   data() {
     return {
       message: '',

@@ -2,7 +2,12 @@
   <div>
     <tabbar>
       <baritem path="/home" activecolor="deeppink">
-        <img slot="item-img" class="item-img" src="~assets/img/tabbar/home.svg" alt="" />
+        <img
+          slot="item-img"
+          class="item-img"
+          src="~assets/img/tabbar/home.svg"
+          alt=""
+        />
         <img
           slot="item-img-hot"
           class="item-img"
@@ -11,7 +16,7 @@
         />
         <div slot="item-text">首页</div>
       </baritem>
-      <baritem path="/category" activecolor="deeppink">
+      <!-- <baritem path="/category" activecolor="deeppink">
         <img slot="item-img" class="item-img" src="~assets/img/tabbar/category.svg" alt="" />
         <img
           slot="item-img-hot"
@@ -20,9 +25,14 @@
           alt=""
         />
         <div slot="item-text">分类</div>
-      </baritem>
+      </baritem> -->
       <baritem path="/cart" activecolor="deeppink">
-        <img slot="item-img" class="item-img" src="~assets/img/tabbar/cart.svg" alt="" />
+        <img
+          slot="item-img"
+          class="item-img"
+          src="~assets/img/tabbar/cart.svg"
+          alt=""
+        />
         <img
           slot="item-img-hot"
           class="item-img"
@@ -32,7 +42,12 @@
         <div slot="item-text">购物车</div>
       </baritem>
       <baritem path="/profile" activecolor="deeppink">
-        <img slot="item-img" class="item-img" src="~assets/img/tabbar/profile.svg" alt="" />
+        <img
+          slot="item-img"
+          class="item-img"
+          src="~assets/img/tabbar/profile.svg"
+          alt=""
+        />
         <img
           slot="item-img-hot"
           class="item-img"
