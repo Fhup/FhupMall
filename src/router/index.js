@@ -1,7 +1,8 @@
-//配置路由相关的信息
+// 配置路由相关的信息
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// 进行路由懒加载
 const Home = () =>
     import ('views/home/Home')
 const CateGory = () =>
